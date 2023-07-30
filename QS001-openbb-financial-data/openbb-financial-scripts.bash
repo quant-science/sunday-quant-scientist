@@ -1,5 +1,5 @@
 # The Quant Science Newsletter
-# Edition 1: Get a $29,000 Financial Data Terminal for Free
+# QS 001: Get a $29,000 Financial Data Terminal for Free
 # Copyright: Quant Science, LLC
 
 # STEP 1: DOWNLOAD OPENBB
