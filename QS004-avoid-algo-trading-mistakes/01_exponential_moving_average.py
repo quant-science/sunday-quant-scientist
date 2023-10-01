@@ -65,15 +65,24 @@ df
 
 # Matplotlib Plot
 plt.style.use('dark_background')
+
 plt.figure(figsize=(10,6))
+
+# Add lines
 plt.plot(df.index, df['price'], label='Original Price', marker='o', alpha=0.5, color='lime')
 plt.plot(df.index, df['sma'], label=f'{window_size}-Day SMA', linestyle='dashed', color='cyan')
 plt.plot(df.index, df['ema'], label=f'{window_size}-Day EMA', linestyle='dotted', color='magenta')
 plt.plot(df.index, df['kf'], label='Kalman Filter', linestyle='solid', color='yellow')
+
+# Add labels
 plt.title('Price with SMA, EMA and Kalman Filter', color='white')
 plt.xlabel('Date', color='white')
 plt.ylabel('Price', color='white')
+
+# Format
 plt.legend()
 plt.grid(True, color='gray', linestyle='--', linewidth=0.5)
 plt.tight_layout()
+
 plt.show()
+
