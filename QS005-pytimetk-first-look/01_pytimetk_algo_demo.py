@@ -13,7 +13,7 @@ import pytimetk as tk
 # 2.0 GET STOCK PRICE DATA ----
 
 stocks_df = tk.load_dataset("stocks_daily")
-stocks_df['date'] = pd.to_datetime(df['date'])
+stocks_df['date'] = pd.to_datetime(stocks_df['date'])
 
 stocks_df.glimpse()
 
