@@ -86,3 +86,8 @@ plt.tight_layout()
 
 plt.show()
 
+
+# WANT MORE ALGORITHMIC TRADING HELP?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
