@@ -4,7 +4,7 @@
 
 # 1.0 IMPORT LIBRARIES ----
 
-# Note: I'm using the development version of pytimetk==0.1.0.9000
+# Note: I'm using the development version of pytimetk==0.1.0.9001
 # pip install git+https://github.com/business-science/pytimetk.git
 
 import pandas as pd
