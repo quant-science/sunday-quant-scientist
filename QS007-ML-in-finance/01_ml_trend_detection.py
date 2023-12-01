@@ -1,4 +1,5 @@
-
+# The Quant Science Newsletter
+# QS 007: Machine Learning for SPY Trend Detection
 # Credit: Danny Groves for his awesome
 # https://twitter.com/drdanobi/status/1729469353282744515?s=46&t=npiSgI5uPxafM5JqdAQNDw
 
@@ -9,7 +10,7 @@ import pytimetk as tk
 import plotly.graph_objects as go
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, precision_score
+from sklearn.metrics import accuracy_score, precision_score, roc_auc_score
 
 # INPUTS
 
@@ -91,6 +92,9 @@ print(f"Test Accuracy: {accuracy_score(y_test, y_test_pred)}")
 print(f"Train Precision: {precision_score(y_train, y_train_pred)}")
 print(f"Test Precision: {precision_score(y_test, y_test_pred)}")
 
+print(f"Train ROC AUC: {roc_auc_score(y_train, clf.predict_proba(x_train)[:, 1])}")
+print(f"Test ROC AUC: {roc_auc_score(y_test, clf.predict_proba(x_test)[:, 1])}")
+
 # Visualize
 
 df_test = df[df['date'] > train_until].reset_index(drop=True)
@@ -130,8 +134,8 @@ for idx, row in df_pattern.iterrows():
     )
     
 fig.update_layout(
-    width = 1000,
-    height = 700,
+    width = 800,
+    height = 600,
     xaxis_rangeslider_visible=True,
 )
 
