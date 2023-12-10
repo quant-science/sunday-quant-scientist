@@ -52,3 +52,8 @@ stocks_anomalized_df \
         width = 1100,
         height = 800,
     )
+
+# WANT MORE ALGORITHMIC TRADING HELP?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
