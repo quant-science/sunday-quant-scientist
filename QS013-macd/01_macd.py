@@ -82,3 +82,23 @@ plt.legend()
 
 plt.tight_layout() # Adjust layout to not overlap
 plt.show()
+
+
+# ===
+# Correlation Analysis
+
+# Make forward 5-day returns
+df_with_macd['5-day-forward-return'] = df_with_macd['Close'].shift(-5) / df_with_macd['Close'] - 1
+
+# Calculate rolling correlation
+df_with_macd['rolling_corr'] = df_with_macd['5-day-forward-return'] \
+    .rolling(window=30) \
+    .corr(df_with_macd['MACD']) 
+    
+df_with_macd \
+    .reset_index() \
+    .plot_timeseries(
+        "date", "rolling_corr"
+    )
+
+df_with_macd['rolling_corr'].describe()
