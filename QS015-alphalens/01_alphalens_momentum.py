@@ -52,6 +52,5 @@ factor_data_al = al.utils.get_clean_factor_and_forward_returns(
 
 factor_data_al
 
-# Returns Tear Sheet
-
+# Full Tear Sheet
 al.tears.create_full_tear_sheet(factor_data_al)
