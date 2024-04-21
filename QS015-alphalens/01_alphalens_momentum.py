@@ -1,5 +1,5 @@
 # The Quant Science Newsletter
-# QS 014: Portfolio Optimization with Riskfolio
+# QS 015: Factor Analysis with Alphalens
 
 # READY TO LEARN ALGORITHMIC TRADING WITH US?
 # Register for our Course Waitlist: 
