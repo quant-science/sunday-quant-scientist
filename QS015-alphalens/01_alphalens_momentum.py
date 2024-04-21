@@ -11,7 +11,7 @@ import numpy as np
 import alphalens as al
 
 # Fetch historical stock data
-tickers = ["AAPL", "GOOGL", "MSFT"]
+tickers = ["AAPL", "GOOGL", "MSFT", "JPM", "GE"]
 start_date = "2020-01-01"
 end_date = "2023-01-01"
 
