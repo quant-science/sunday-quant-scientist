@@ -31,19 +31,26 @@ factor_data = {
     for date in momentum.index
     for ticker, value in momentum.loc[date].items() if np.isfinite(value)
 }
+
 factor_index = pd.MultiIndex.from_tuples(factor_data.keys(), names=['date', 'asset'])
-factor_values = pd.Series(factor_data.values(), index=factor_index, name='momentum')
+
+factor_values = pd.Series(factor_data.values(), index=factor_index, name='momentum').to_frame()
+
+factor_values
 
 # Prepare price data for Alphalens
-aligned_prices = prices.stack().reindex(factor_index)
+aligned_prices = prices.stack().reindex(factor_index).unstack()
+aligned_prices
 
 # Run Alphalens analysis
 factor_data_al = al.utils.get_clean_factor_and_forward_returns(
-    factor=factor_values,
-    prices=aligned_prices.unstack(),
+    factor=factor_values['momentum'],
+    prices=aligned_prices,
     periods=[1, 5, 10],
     max_loss=0.5
 )
+
+factor_data_al
 
 # Returns Tear Sheet
 al.tears.create_returns_tear_sheet(factor_data_al)
