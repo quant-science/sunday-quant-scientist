@@ -1,0 +1,75 @@
+
+
+from plotly.io import show
+from sklearn.cluster import KMeans
+from sklearn.model_selection import train_test_split
+
+from skfolio import Population, RiskMeasure
+from skfolio.cluster import HierarchicalClustering, LinkageMethod
+from skfolio.datasets import load_sp500_dataset
+from skfolio.distance import KendallDistance
+from skfolio.optimization import (
+    EqualWeighted,
+    MeanRisk,
+    NestedClustersOptimization,
+    ObjectiveFunction,
+    RiskBudgeting, 
+)
+from skfolio.preprocessing import prices_to_returns
+
+prices = load_sp500_dataset()
+
+X = prices_to_returns(prices)
+
+X_train, X_test = train_test_split(X, test_size=0.33, shuffle=False)
+
+
+inner_estimator = MeanRisk(
+    objective_function=ObjectiveFunction.MAXIMIZE_RATIO,
+    risk_measure=RiskMeasure.VARIANCE,
+)
+
+outer_estimator = RiskBudgeting(risk_measure=RiskMeasure.CVAR)
+
+
+
+inner_estimator = RiskBudgeting(risk_measure=RiskMeasure.CVAR)
+
+outer_estimator = MeanRisk(
+    objective_function=ObjectiveFunction.MAXIMIZE_RATIO,
+    risk_measure=RiskMeasure.VARIANCE,
+)
+
+clustering_estimator = KMeans(n_init="auto", n_clusters=6)
+
+model1 = NestedClustersOptimization(
+    inner_estimator=inner_estimator,
+    outer_estimator=outer_estimator,
+    clustering_estimator=clustering_estimator,
+    n_jobs=-1,
+    portfolio_params=dict(name="NCO-1"),
+)
+model1.fit(X_train)
+model1.weights_
+
+model1.clustering_estimator_
+
+model1.clustering_estimator_
+pred = model1.predict(X_train)
+
+model1.clustering_estimator_.
+
+# model1.clustering_estimator_.plot_dendrogram(heatmap=True)
+
+
+# Benchmark
+bench = EqualWeighted()
+bench.fit(X_train)
+bench.weights_
+
+# Cummulative Returns
+population_test = Population([])
+for model in [model1, bench]:
+    population_test.append(model.predict(X_test))
+
+population_test.plot_cumulative_returns()
