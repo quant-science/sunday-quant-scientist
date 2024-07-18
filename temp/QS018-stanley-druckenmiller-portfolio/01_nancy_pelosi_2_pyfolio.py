@@ -57,6 +57,10 @@ pf.show_perf_stats(portfolio_returns)
 
 pf.plot_drawdown_periods(portfolio_returns)
 
+pf.plot_drawdown_underwater(portfolio_returns)
+
+pf.plot_rolling_sharpe(portfolio_returns)
+
 pf.create_full_tear_sheet(
     portfolio_returns, 
     benchmark_rets=returns_bench['^GSPC']
