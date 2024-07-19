@@ -42,7 +42,7 @@ stock_data_long_pl
 
 # PLOTTING STOCK PRICES
 
-stock_data_long_pl.plot.line(x="Date", y = "Price", by = "Stock")
+stock_data_long_pl.plot.line(x="Date", y = "Price", by = "Stock", height = 500)
 
 # MOVING AVERAGES
 
@@ -58,14 +58,14 @@ moving_average_pl
 STOCK_SYMBOL = "NVDA"
 
 moving_average_pl.filter(
-        pl.col("Stock") == STOCK_SYMBOL
-    ).plot.line(
-        x = "Date",
-        y = ["Price", "Price_MA10", "Price_MA50"],
-        by = "Stock",
-        groupby = "Stock",
-        # subplots = True,
-    )
+    pl.col("Stock") == STOCK_SYMBOL
+).plot.line(
+    x = "Date",
+    y = ["Price", "Price_MA10", "Price_MA50"],
+    by = "Stock",
+    groupby = "Stock",
+    height = 450
+)
 
 # ADD RETURNS AND ROLLING SHARPE BY GROUP
 
@@ -76,6 +76,8 @@ rolling_sharpe_pl = moving_average_pl.with_columns(
 ).with_columns(
     (pl.col("Return").rolling_mean(window_size) / pl.col("Return").rolling_std(window_size)).over("Stock").alias("Rolling_Sharpe")
 )
+
+rolling_sharpe_pl
 
 rolling_sharpe_pl.plot.line(
     x = "Date",
