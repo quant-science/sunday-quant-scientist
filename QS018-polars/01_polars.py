@@ -26,32 +26,32 @@ stock_data
 
 # CONVERT TO POLARS
 
-df = stock_data.reset_index()
+stock_data_pl = pl.DataFrame(stock_data.reset_index())
 
-df_pl = pl.DataFrame(df)
-
-df_pl
+stock_data_pl
 
 # PIVOT TO LONG FORMAT
 
-df_long_pl = df_pl.melt(
+stock_data_long_pl = stock_data_pl.melt(
     id_vars="Date", 
     value_name="Price",
     variable_name="Stock"
 )
 
-df_long_pl
+stock_data_long_pl
 
 # PLOTTING STOCK PRICES
 
-df_long_pl.plot.line(x="Date", y = "Price", by = "Stock")
+stock_data_long_pl.plot.line(x="Date", y = "Price", by = "Stock")
 
 # MOVING AVERAGES
 
-moving_average_pl = df_long_pl.with_columns([
+moving_average_pl = stock_data_long_pl.with_columns([
     pl.col("Price").rolling_mean(10).over("Stock").alias("Price_MA10"),
     pl.col("Price").rolling_mean(50).over("Stock").alias("Price_MA50"),
 ])
+
+moving_average_pl
 
 # VISUALIZE ONE OF THE STOCKS
 
