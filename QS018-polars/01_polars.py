@@ -6,11 +6,11 @@
 # https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
 
 
+# LIBRARIES
+
 import polars as pl
 import pandas as pd
-import pytimetk as tk
 import yfinance as yf
-
 
 # STANLEY DRUCKENMILLER'S FUND DATA FROM 13F FILING ----
 
