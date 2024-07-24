@@ -2,6 +2,8 @@
 # QS 002: Using Python to Automate Trades
 # Copyright: Quant Science, LLC
 
+# Requires openbb==^3.2.4
+
 import pandas as pd
 from openbb_terminal.sdk import openbb
 import riskfolio as rp

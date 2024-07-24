@@ -2,6 +2,8 @@
 # QS 003: Make a Stock Screener with Python
 # Copyright: Quant Science, LLC
 
+# Requires openbb==^3.2.4
+
 from openbb_terminal.sdk import openbb
 import pandas as pd
 
