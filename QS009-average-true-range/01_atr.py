@@ -20,6 +20,12 @@ END = "2023-12-13"
 # Load the data
 df = openbb.stocks.load(SYMBOL, start_date=START, end_date=END)
 
+# # OPENBB 4 Compatibility:
+# import openbb as openbb # openbb 4
+# df = openbb.obb.equity.price.historical(SYMBOL, start_date=START, end_date=END).to_df() # openbb 4
+# df.index = pd.to_datetime(df.index)
+# df = df.rename({"close":"Close", "open":"Open", "high":"High", "low":"Low"}, axis=1)
+
 df \
     .reset_index() \
     .plot_timeseries(
