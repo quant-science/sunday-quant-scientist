@@ -7,7 +7,8 @@
 
 # STEP 1: Load the data
 
-from openbb_terminal.sdk import openbb
+from openbb_terminal.sdk import openbb # openbb 3
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -21,7 +22,13 @@ START = "2021-09-30"
 END = "2023-12-13"
 
 # Load the data
-df = openbb.stocks.load(SYMBOL, start_date=START, end_date=END)
+df = openbb.stocks.load(SYMBOL, start_date=START, end_date=END) # openbb 3
+
+# # OPENBB 4 Compatibility:
+# import openbb as openbb # openbb 4
+# df = openbb.obb.equity.price.historical(SYMBOL, start_date=START, end_date=END).to_df() # openbb 4
+# df.index = pd.to_datetime(df.index)
+# df = df.rename({"close":"Close"}, axis=1)
 
 df \
     .reset_index() \

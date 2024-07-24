@@ -71,7 +71,7 @@ moving_average_pl.filter(
 
 window_size = 50
 
-rolling_sharpe_pl = moving_average_pl.with_columns(
+rolling_sharpe_pl = stock_data_long_pl.with_columns(
     (pl.col("Price") / pl.col("Price").shift(1) - 1).over("Stock").alias("Return")
 ).with_columns(
     (pl.col("Return").rolling_mean(window_size) / pl.col("Return").rolling_std(window_size)).over("Stock").alias("Rolling_Sharpe")

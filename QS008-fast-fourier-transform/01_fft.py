@@ -20,6 +20,13 @@ END = "2023-09-30"
 # Load the data
 data = openbb.stocks.load(SYMBOL, start_date=START, end_date=END)
 
+# # OPENBB 4 Compatibility:
+# import openbb as openbb # openbb 4
+# df = openbb.obb.equity.price.historical(SYMBOL, start_date=START, end_date=END).to_df() # openbb 4
+# df.index = pd.to_datetime(df.index)
+# df = df.rename({"close":"Close"}, axis=1)
+# data = df
+
 df = data.reset_index()[['date', 'Close']]
 
 df.columns = ['date', 'Price']
