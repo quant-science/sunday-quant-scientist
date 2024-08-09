@@ -46,7 +46,11 @@ corr_df = returns.corr()
 corr_df
 
 # Visualize the Correlations
-sns.heatmap(corr_df, annot=True, cmap="coolwarm")
+sns.heatmap(
+    corr_df, 
+    annot=True, 
+    cmap="coolwarm"
+)
 
 # Cluster the Correlations
 sns.clustermap(
@@ -84,6 +88,8 @@ w = port.optimization(
     leaf_order=True
 )
 
+w
+
 # * 4.0 Portfolio Analysis
 
 rp.plot_pie(w)
@@ -99,10 +105,6 @@ rp.plot_table(returns=returns, w=w)
 portfolio_returns = (returns * w.weights).sum(axis=1)
 portfolio_returns.name = "portfolio_returns"
 portfolio_returns
-
-portfolio_returns.cumsum().plot()
-
-pf.show_perf_stats(portfolio_returns)
 
 pf.create_simple_tear_sheet(returns=portfolio_returns, benchmark_rets=returns['^GSPC'])
 
