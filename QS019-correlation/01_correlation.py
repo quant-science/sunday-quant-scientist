@@ -108,3 +108,5 @@ portfolio_returns
 
 pf.create_simple_tear_sheet(returns=portfolio_returns, benchmark_rets=returns['^GSPC'])
 
+# Benchmark:
+pf.create_simple_tear_sheet(returns=returns['^GSPC'])
