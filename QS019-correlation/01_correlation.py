@@ -1,5 +1,5 @@
 # The Quant Science Newsletter
-# QS 015: Factor Analysis with Alphalens
+# QS 019: Correlation Analysis
 
 # READY TO LEARN ALGORITHMIC TRADING WITH US?
 # Register for our Course Waitlist: 
