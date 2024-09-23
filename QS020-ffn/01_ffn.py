@@ -32,17 +32,15 @@ perf.plot()
 # Correlations
 perf.plot_correlation()
 
-# Histograms
-perf.plot_histogram()
-
 # Drawdowns
 drawdowns = perf.prices.to_drawdown_series()
-drawdowns.plot(backend="plotly")
+drawdowns.plot()
 
 # BONUS: Get all of the stats as a data frame
 df = pd.DataFrame()
 for asset in list(perf.keys()):
     stats = perf[asset].stats
+    stats.name = asset
     df = pd.concat([df, stats], axis= 1)
 df
     
