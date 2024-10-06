@@ -1,5 +1,6 @@
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb
 
 # vscode project settings
 .vscode
