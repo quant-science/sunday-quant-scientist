@@ -7,7 +7,7 @@ import yfinance as yf
 # Load Dow Jones data
 dji = pd.read_html('https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average')[2]
 symbols = dji.Symbol.tolist()
-data = yf.download(symbols, start="2020-01-01", end="2022-12-31")["Adj Close"]
+data = yf.download(symbols, start="2020-01-01", end="2024-12-31")["Adj Close"]
 
 # Calculate returns and volatility (annualized)
 moments = (

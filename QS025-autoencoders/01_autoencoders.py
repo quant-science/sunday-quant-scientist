@@ -144,16 +144,34 @@ clusters = kmeans.labels_
 pca = PCA(n_components=2)
 embeddings_2d = pca.fit_transform(embeddings.numpy())
 
-sns.scatterplot(
+plt.figure(figsize=(12, 8))
+scatter = sns.scatterplot(
     x=embeddings_2d[:, 0],
     y=embeddings_2d[:, 1],
     hue=clusters,
     palette=sns.color_palette("hsv", len(set(clusters))),
+    s=100,  # Increase marker size
+    edgecolor='k'
 )
 plt.xlabel("PCA Dimension 1")
 plt.ylabel("PCA Dimension 2")
+plt.title("PCA Plot of Stock Embeddings with Clusters")
 plt.legend(title="Cluster")
 plt.grid(True)
+
+# Adding stock symbols with enhanced readability
+for i, symbol in enumerate(symbols):
+    plt.annotate(
+        symbol, 
+        (embeddings_2d[i, 0], embeddings_2d[i, 1]), 
+        textcoords="offset points", 
+        xytext=(8, 8),  # Increase offset to reduce overlap
+        ha='center',
+        fontsize=9,
+        fontweight='bold',
+        bbox=dict(boxstyle="round,pad=0.3", fc="white", alpha=0.7, edgecolor="gray")
+    )
+
 plt.show()
 
 
