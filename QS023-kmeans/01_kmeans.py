@@ -1,3 +1,10 @@
+# The Quant Science Newsletter
+# QS 023: K-Means Clustering for Algorithmic Trading
+
+# READY TO LEARN ALGORITHMIC TRADING WITH US?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
 from math import sqrt
 import pandas as pd
 import matplotlib.pyplot as plt

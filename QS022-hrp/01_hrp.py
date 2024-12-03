@@ -1,3 +1,10 @@
+# The Quant Science Newsletter
+# QS 022: Hierarchical Risk Parity (HRP) Portfolio Optimization
+
+# READY TO LEARN ALGORITHMIC TRADING WITH US?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
 import pandas as pd
 import riskfolio as rp
 import yfinance as yf
