@@ -1,3 +1,10 @@
+# The Quant Science Newsletter
+# QS 024: Downside Deviation vs Volatility
+
+# READY TO LEARN ALGORITHMIC TRADING WITH US?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
 import numpy as np
 import yfinance as yf
 
@@ -27,6 +34,14 @@ def downside_deviation(returns):
     # Return the annualized downside deviation as a single value
     return out.item()
 
-downside_deviation(returns)
+dd = downside_deviation(returns)
 
-np.sqrt(np.square(returns).mean()) * np.sqrt(252)
+vol = np.sqrt(np.square(returns).mean()) * np.sqrt(252)
+
+dd / vol 
+
+# If dd/vol is greater than 1, then the downside deviation is greater than the volatility
+
+# If dd/vol is less than 1, then the downside deviation is less than the volatility
+
+# If dd/vol is equal to 1, then the downside deviation is equal to the volatility

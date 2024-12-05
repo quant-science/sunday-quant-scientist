@@ -1,3 +1,10 @@
+# The Quant Science Newsletter
+# QS 021: Matplotlib Finance
+
+# READY TO LEARN ALGORITHMIC TRADING WITH US?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
 import yfinance as yf
 import mplfinance as mpf
 import warnings

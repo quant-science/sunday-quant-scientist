@@ -1,3 +1,10 @@
+# The Quant Science Newsletter
+# QS 026: Markov Models For Algorithmic Trading
+
+# READY TO LEARN ALGORITHMIC TRADING WITH US?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
 import numpy as np
 import pandas as pd
 import yfinance as yf
