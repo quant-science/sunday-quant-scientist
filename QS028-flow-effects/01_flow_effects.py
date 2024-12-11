@@ -63,3 +63,4 @@ pf.stats()
 # Generate a plot with the strategy's performance.
 
 pf.plot().show()
+

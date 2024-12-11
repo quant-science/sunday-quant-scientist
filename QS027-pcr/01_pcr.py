@@ -1,3 +1,10 @@
+# The Quant Science Newsletter
+# QS 027: Principal Component Regression for Algorithmic Trading
+
+# READY TO LEARN ALGORITHMIC TRADING WITH US?
+# Register for our Course Waitlist: 
+# https://learn.quantscience.io/python-algorithmic-trading-course-waitlist
+
 import yfinance as yf
 import riskfolio as rf
 import pandas as pd
