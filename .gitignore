@@ -6,5 +6,5 @@
 .vscode
 
 # Mac folder settings
-.DS_Store/
+**/.DS_Store
 
