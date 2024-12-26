@@ -4,7 +4,6 @@
 # https://twitter.com/drdanobi/status/1729469353282744515?s=46&t=npiSgI5uPxafM5JqdAQNDw
 
 # Libraries
-from openbb_terminal.sdk import openbb
 import pandas as pd
 import pytimetk as tk
 import plotly.graph_objects as go
@@ -20,10 +19,18 @@ END = "2023-09-30"
 TRAIN_UNTIL = "2018-09-30"
 
 # Load the data
+from openbb_terminal.sdk import openbb
 data = openbb.stocks.load(SYMBOL, start_date=START, end_date=END)
-
 df = data.reset_index()[['date', 'Open', 'High', 'Low', 'Close']]
 df
+
+# # OPENBB 4 Compatibility:
+import openbb as openbb # openbb 4
+df = openbb.obb.equity.price.historical(SYMBOL, start_date=START, end_date=END).to_df() # openbb 4
+df.index = pd.to_datetime(df.index)
+df = df.rename({"close":"Close", "high":"High", "low":"Low", "open":"Open"}, axis=1)
+df.reset_index(inplace=True)
+
 
 df \
     .plot_timeseries(

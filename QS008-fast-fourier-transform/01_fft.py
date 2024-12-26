@@ -3,7 +3,6 @@
 
 # STEP 1: Load the data
 
-from openbb_terminal.sdk import openbb
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -18,14 +17,15 @@ START = "2021-09-30"
 END = "2023-09-30"
 
 # Load the data
+from openbb_terminal.sdk import openbb
 data = openbb.stocks.load(SYMBOL, start_date=START, end_date=END)
 
 # # OPENBB 4 Compatibility:
-# import openbb as openbb # openbb 4
-# df = openbb.obb.equity.price.historical(SYMBOL, start_date=START, end_date=END).to_df() # openbb 4
-# df.index = pd.to_datetime(df.index)
-# df = df.rename({"close":"Close"}, axis=1)
-# data = df
+import openbb as openbb # openbb 4
+df = openbb.obb.equity.price.historical(SYMBOL, start_date=START, end_date=END).to_df() # openbb 4
+df.index = pd.to_datetime(df.index)
+df = df.rename({"close":"Close"}, axis=1)
+data = df
 
 df = data.reset_index()[['date', 'Close']]
 
@@ -38,6 +38,7 @@ df \
         title="SPY Close",
         x_lab="Date",
         y_lab="Price",
+        smooth=False,
     )
 
 # STEP 2: Apply FFT
