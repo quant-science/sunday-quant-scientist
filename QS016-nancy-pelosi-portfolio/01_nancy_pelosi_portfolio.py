@@ -28,7 +28,7 @@ assets = [
 ]
 
 # Collect and format data
-data = yf.download(assets, start = "2018-01-01", end = "2024-05-05")
+data = yf.download(assets, start = "2018-01-01", end = "2024-12-31")
 data = data.loc[:, "Adj Close"]
 data
 
@@ -57,7 +57,7 @@ w = port.optimization(
 )
 w
 
-ax = rp.plot_pie(
+rp.plot_pie(
     w = w, 
     others = 0.05, 
     nrow = 25, 

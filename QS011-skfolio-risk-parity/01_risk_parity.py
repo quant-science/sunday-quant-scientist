@@ -16,7 +16,7 @@ from skfolio import Population, RiskMeasure
 from skfolio.optimization import InverseVolatility, RiskBudgeting
 from skfolio.preprocessing import prices_to_returns
 
-prices = yf.download(['AAPL', 'MSFT', 'GOOG', 'AMZN', 'META', 'TSLA', 'NVDA'], start='2015-01-01', end='2023-12-31', progress=False)
+prices = yf.download(['AAPL', 'MSFT', 'GOOG', 'AMZN', 'META', 'TSLA', 'NVDA'], start='2015-01-01', end='2024-12-31', progress=False)
 
 prices = prices['Adj Close']
 
