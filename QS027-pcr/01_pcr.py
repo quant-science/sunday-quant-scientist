@@ -72,7 +72,7 @@ port.factors = factor_returns
 port.factors_stats(
     method_mu="hist",
     method_cov="ledoit",
-    dict_risk=dict(
+    dict_load=dict(
         n_components=0.95  # 95% of explained variance.
     )
 )
